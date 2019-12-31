@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet, Image, Dimensions } from "react-native";
 import BodyText from "../components/BodyText";
 import TitleText from "../components/TitleText";
 import { Colors } from "react-native/Libraries/NewAppScreen";
@@ -23,8 +23,9 @@ const GameOverScreen = props => {
       <View style={styles.resultContainer}>
         <BodyText style={styles.resultText}>
           Your phone needed{" "}
-          <Text style={styles.highlight}>{props.roundsNumber}</Text> to guess
-          the number <Text style={styles.highlight}>{props.userNumber}</Text>
+          <Text style={styles.highlight}>{props.roundsNumber}</Text> rounds to
+          guess the number{" "}
+          <Text style={styles.highlight}>{props.userNumber}</Text>
         </BodyText>
       </View>
 
@@ -37,15 +38,16 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    paddingVertical: 10
   },
   image: {
     width: "100%",
     height: "100%"
   },
   imageContainer: {
-    width: 300,
-    height: 300,
+    width: Dimensions.get("window").width * 0.7,
+    height: Dimensions.get("window").width * 0.7,
     borderRadius: 150,
     borderColor: "black",
     borderWidth: 3,
